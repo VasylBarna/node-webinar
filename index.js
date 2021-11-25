@@ -3,7 +3,7 @@ const morgan = require('morgan')
 require('dotenv').config()
 const app = express()
 
-const { postsRouter } = require('./routers/postsRourer')
+const { postsRouter } = require('./src/routers/postsRourer')
 
 const PORT = process.env.PORT || 8081
 

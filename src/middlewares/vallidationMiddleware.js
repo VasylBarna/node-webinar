@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const { ValidationError } = require('../helpers/errors')
 
 module.exports = {
   addPostVallidation: (req, res, next) => {
@@ -8,7 +9,7 @@ module.exports = {
     })
     const validateResult = schema.validate(req.body)
     if (validateResult.error) {
-      return res.status(400).json({ status: validateResult.error.details })
+      next(new ValidationError(validateResult.error.details))
     }
     next()
   },

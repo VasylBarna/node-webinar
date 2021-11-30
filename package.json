@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/VasylBarna/node-webinar#readme",
   "devDependencies": {
+    "eslint": "^8.3.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint": "^8.3.0",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "express": "^4.17.1",
     "joi": "^17.4.2",
     "mongodb": "^4.2.0",
+    "mongoose": "^6.0.13",
     "morgan": "^1.10.0",
     "npx": "^10.2.2"
   }

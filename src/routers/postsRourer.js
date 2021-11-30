@@ -5,26 +5,22 @@ const { addPostVallidation } = require('../middlewares/vallidationMiddleware')
 
 const { asyncWrapper } = require('../helpers/apiHelpers')
 
-const modelsMiddleware = require('../middlewares/models')
-
 const {
-  getPosts,
-  getPostsById,
-  addPost,
-  changePost,
-  deletePost,
+  getPostsController,
+  getPostsByIdController,
+  addPostController,
+  changePostController,
+  deletePostController,
 } = require('../controllers/postsController')
 
-router.use(modelsMiddleware)
+router.get('/', asyncWrapper(getPostsController))
 
-router.get('/', asyncWrapper(getPosts))
+router.get('/:id', asyncWrapper(getPostsByIdController))
 
-router.get('/:id', asyncWrapper(getPostsById))
+router.post('/', addPostVallidation, asyncWrapper(addPostController))
 
-router.post('/', addPostVallidation, asyncWrapper(addPost))
+router.put('/:id', addPostVallidation, asyncWrapper(changePostController))
 
-router.put('/:id', addPostVallidation, asyncWrapper(changePost))
-
-router.delete('/:id', asyncWrapper(deletePost))
+router.delete('/:id', asyncWrapper(deletePostController))
 
 module.exports = { postsRouter: router }

@@ -1,8 +1,30 @@
 const { Post } = require('../db/postModel')
+// const { User } = require('../db/userModel')
 const { WrongParametersError } = require('../helpers/errors')
 
-const getPosts = async (userId) => {
+const getPosts = async (userId, { skip, limit }) => {
   const posts = await Post.find({ userId })
+    .select({ __v: 0 })
+    .skip(skip)
+    .limit(limit)
+  // .sort({ createdAt: -1 })
+
+  // const posts = await User.aggregate([
+  //   {
+  //     $project: {
+  //       __v: 0,
+  //       password: 0,
+  //     },
+  //   },
+  //   {
+  //     $lookup: {
+  //       from: 'posts',
+  //       localField: '_id',
+  //       foreignField: 'userId',
+  //       as: 'userPosts',
+  //     },
+  //   },
+  // ])
   return posts
 }
 

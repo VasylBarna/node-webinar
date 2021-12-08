@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { User } = require('../db/userModel')
-
 const { NotAutorizedError } = require('../helpers/errors')
 
 const registration = async (email, password) => {

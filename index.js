@@ -9,12 +9,14 @@ const app = express()
 const { connectMongo } = require('./src/db/connection')
 const { postsRouter } = require('./src/routers/postsRourer')
 const { authRouter } = require('./src/routers/authRouter')
+const { filesRouter } = require('./src/routers/filesRouter')
 const { errorHandler } = require('./src/helpers/apiHelpers')
 
 app.use(express.json())
 app.use(morgan('tiny'))
 app.use('/api/posts', postsRouter)
 app.use('/api/auth', authRouter)
+app.use('/api/files', filesRouter)
 app.use(errorHandler)
 
 const start = async () => {

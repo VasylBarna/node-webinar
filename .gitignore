@@ -1,4 +1,6 @@
-# Logs
+google-storage.json
+#
+ Logs
 logs
 *.log
 npm-debug.log*
